@@ -1,0 +1,8 @@
+---
+description: Follow these rules when working on testing.
+globs: 
+---
+# Testing Rules
+
+- Use Jest for unit testing
+- Use Playwright for end-to-end testing
