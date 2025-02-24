@@ -41,6 +41,7 @@ export default async function RootLayout({
     <ClerkProvider>
       <html lang="en" suppressHydrationWarning>
         <body
+          suppressHydrationWarning
           className={cn(
             "bg-background mx-auto min-h-screen w-full scroll-smooth antialiased",
             inter.className
