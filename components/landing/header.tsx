@@ -45,13 +45,13 @@ export default function Header() {
 
   return (
     <motion.header
-      initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       className={`sticky top-0 z-50 transition-colors ${
         isScrolled
           ? "bg-background/80 shadow-sm backdrop-blur-sm"
           : "bg-background"
       }`}
+      initial={{ y: -20, opacity: 0 }}
     >
       <div className="container mx-auto flex max-w-7xl items-center justify-between p-4">
         <motion.div
@@ -60,7 +60,7 @@ export default function Header() {
           whileTap={{ scale: 0.95 }}
         >
           <Receipt className="size-6" />
-          <Link href="/" className="text-xl font-bold">
+          <Link className="text-xl font-bold" href="/">
             Receipt AI
           </Link>
         </motion.div>
@@ -73,8 +73,8 @@ export default function Header() {
               whileTap={{ scale: 0.95 }}
             >
               <Link
+                className="rounded-full px-3 py-1 text-muted-foreground transition hover:text-foreground"
                 href={link.href}
-                className="text-muted-foreground hover:text-foreground rounded-full px-3 py-1 transition"
               >
                 {link.label}
               </Link>
@@ -89,8 +89,8 @@ export default function Header() {
                 whileTap={{ scale: 0.95 }}
               >
                 <Link
+                  className="rounded-full px-3 py-1 text-muted-foreground transition hover:text-foreground"
                   href={link.href}
-                  className="text-muted-foreground hover:text-foreground rounded-full px-3 py-1 transition"
                 >
                   {link.label}
                 </Link>
@@ -130,10 +130,10 @@ export default function Header() {
             whileTap={{ scale: 0.95 }}
           >
             <Button
-              variant="ghost"
-              size="icon"
-              onClick={toggleMenu}
               aria-label="Toggle menu"
+              size="icon"
+              variant="ghost"
+              onClick={toggleMenu}
             >
               {isMenuOpen ? (
                 <X className="size-6" />
@@ -147,16 +147,16 @@ export default function Header() {
 
       {isMenuOpen && (
         <motion.nav
-          initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
+          className="bg-primary-foreground p-4 text-primary md:hidden"
           exit={{ opacity: 0, y: -10 }}
-          className="bg-primary-foreground text-primary p-4 md:hidden"
+          initial={{ opacity: 0, y: -10 }}
         >
           <ul className="space-y-2">
             <li>
               <Link
-                href="/"
                 className="block hover:underline"
+                href="/"
                 onClick={toggleMenu}
               >
                 Home
@@ -165,8 +165,8 @@ export default function Header() {
             {navLinks.map(link => (
               <li key={link.href}>
                 <Link
-                  href={link.href}
                   className="block hover:underline"
+                  href={link.href}
                   onClick={toggleMenu}
                 >
                   {link.label}
@@ -177,8 +177,8 @@ export default function Header() {
               {signedInLinks.map(link => (
                 <li key={link.href}>
                   <Link
-                    href={link.href}
                     className="block hover:underline"
+                    href={link.href}
                     onClick={toggleMenu}
                   >
                     {link.label}

@@ -14,20 +14,20 @@ export async function Footer() {
             <h3 className="text-lg font-bold">Company</h3>
             <div className="flex flex-col gap-2">
               <Link
+                className="text-muted-foreground transition hover:text-foreground"
                 href="/about"
-                className="text-muted-foreground hover:text-foreground transition"
               >
                 About
               </Link>
               <Link
+                className="text-muted-foreground transition hover:text-foreground"
                 href="/blog"
-                className="text-muted-foreground hover:text-foreground transition"
               >
                 Blog
               </Link>
               <Link
+                className="text-muted-foreground transition hover:text-foreground"
                 href="/careers"
-                className="text-muted-foreground hover:text-foreground transition"
               >
                 Careers
               </Link>
@@ -38,20 +38,20 @@ export async function Footer() {
             <h3 className="text-lg font-bold">Product</h3>
             <div className="flex flex-col gap-2">
               <Link
+                className="text-muted-foreground transition hover:text-foreground"
                 href="/features"
-                className="text-muted-foreground hover:text-foreground transition"
               >
                 Features
               </Link>
               <Link
+                className="text-muted-foreground transition hover:text-foreground"
                 href="/pricing"
-                className="text-muted-foreground hover:text-foreground transition"
               >
                 Pricing
               </Link>
               <Link
+                className="text-muted-foreground transition hover:text-foreground"
                 href="/docs"
-                className="text-muted-foreground hover:text-foreground transition"
               >
                 Documentation
               </Link>
@@ -62,20 +62,20 @@ export async function Footer() {
             <h3 className="text-lg font-bold">Resources</h3>
             <div className="flex flex-col gap-2">
               <Link
+                className="text-muted-foreground transition hover:text-foreground"
                 href="/support"
-                className="text-muted-foreground hover:text-foreground transition"
               >
                 Support
               </Link>
               <Link
+                className="text-muted-foreground transition hover:text-foreground"
                 href="/terms"
-                className="text-muted-foreground hover:text-foreground transition"
               >
                 Terms
               </Link>
               <Link
+                className="text-muted-foreground transition hover:text-foreground"
                 href="/privacy"
-                className="text-muted-foreground hover:text-foreground transition"
               >
                 Privacy
               </Link>
@@ -87,23 +87,23 @@ export async function Footer() {
             <div className="flex gap-4">
               <Link
                 href="https://github.com"
-                target="_blank"
                 rel="noopener noreferrer"
+                target="_blank"
               >
-                <Github className="text-muted-foreground hover:text-foreground size-6 transition" />
+                <Github className="size-6 text-muted-foreground transition hover:text-foreground" />
               </Link>
               <Link
                 href="https://twitter.com"
-                target="_blank"
                 rel="noopener noreferrer"
+                target="_blank"
               >
-                <Twitter className="text-muted-foreground hover:text-foreground size-6 transition" />
+                <Twitter className="size-6 text-muted-foreground transition hover:text-foreground" />
               </Link>
             </div>
           </div>
         </div>
 
-        <div className="text-muted-foreground mt-12 pt-8 text-center">
+        <div className="mt-12 pt-8 text-center text-muted-foreground">
           <p>
             &copy; {new Date().getFullYear()} Your Company. All rights reserved.
           </p>

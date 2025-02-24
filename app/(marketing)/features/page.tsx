@@ -17,12 +17,12 @@ function Feature({ title, description, icon }: FeatureProps) {
   return (
     <Card>
       <CardContent className="flex items-start gap-4 pt-6">
-        <div className="bg-primary text-primary-foreground rounded-lg p-2">
+        <div className="rounded-lg bg-primary p-2 text-primary-foreground">
           {icon}
         </div>
         <div>
           <h3 className="mb-2 font-semibold">{title}</h3>
-          <p className="text-muted-foreground text-sm">{description}</p>
+          <p className="text-sm text-muted-foreground">{description}</p>
         </div>
       </CardContent>
     </Card>
@@ -71,7 +71,7 @@ export default async function FeaturesPage() {
   return (
     <div className="container mx-auto py-12">
       <h1 className="mb-8 text-center text-4xl font-bold">Features</h1>
-      <p className="text-muted-foreground mx-auto mb-12 max-w-2xl text-center">
+      <p className="mx-auto mb-12 max-w-2xl text-center text-muted-foreground">
         Discover the powerful features that make our platform the perfect
         solution for your needs.
       </p>

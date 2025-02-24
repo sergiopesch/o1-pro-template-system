@@ -7,13 +7,11 @@ This client component provides a theme switcher for the app.
 import { cn } from "@/lib/utils"
 import { Moon, Sun } from "lucide-react"
 import { useTheme } from "next-themes"
-import { HTMLAttributes, ReactNode } from "react"
+import { type HTMLAttributes } from "react"
 
-interface ThemeSwitcherProps extends HTMLAttributes<HTMLDivElement> {
-  children?: ReactNode
-}
+interface ThemeSwitcherProps extends HTMLAttributes<HTMLDivElement> {}
 
-export const ThemeSwitcher = ({ children, ...props }: ThemeSwitcherProps) => {
+export const ThemeSwitcher = ({ ...props }: ThemeSwitcherProps) => {
   const { setTheme, theme } = useTheme()
 
   const handleChange = (theme: "dark" | "light") => {

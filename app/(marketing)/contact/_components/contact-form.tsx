@@ -35,7 +35,7 @@ export default function ContactForm() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+      <form className="space-y-6" onSubmit={form.handleSubmit(onSubmit)}>
         <FormField
           control={form.control}
           name="name"
@@ -72,8 +72,8 @@ export default function ContactForm() {
               <FormLabel>Message</FormLabel>
               <FormControl>
                 <Textarea
-                  placeholder="How can we help?"
                   className="min-h-[120px]"
+                  placeholder="How can we help?"
                   {...field}
                 />
               </FormControl>
@@ -82,7 +82,7 @@ export default function ContactForm() {
           )}
         />
 
-        <Button type="submit" className="w-full">
+        <Button className="w-full" type="submit">
           Send Message
         </Button>
       </form>

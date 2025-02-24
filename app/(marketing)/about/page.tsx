@@ -39,7 +39,7 @@ export default async function AboutPage() {
         <Card>
           <CardContent className="pt-6">
             <h2 className="mb-4 text-2xl font-semibold">Core Values</h2>
-            <ul className="text-muted-foreground list-inside list-disc space-y-2">
+            <ul className="list-inside list-disc space-y-2 text-muted-foreground">
               <li>Innovation in everything we do</li>
               <li>Customer success is our success</li>
               <li>Transparency and trust</li>

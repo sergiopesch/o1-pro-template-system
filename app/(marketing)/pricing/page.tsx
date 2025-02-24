@@ -41,32 +41,32 @@ export default async function PricingPage() {
 
       <div className="mx-auto grid max-w-4xl grid-cols-1 gap-8 md:grid-cols-2">
         <PricingCard
-          title="Monthly Plan"
-          price="$10"
-          description="Perfect for individuals and small teams"
-          buttonText="Subscribe Monthly"
           buttonLink={
             process.env.NEXT_PUBLIC_STRIPE_PAYMENT_LINK_MONTHLY || "#"
           }
+          buttonText="Subscribe Monthly"
+          description="Perfect for individuals and small teams"
           features={features}
-          userId={userId}
           popular={false}
+          price="$10"
+          title="Monthly Plan"
+          userId={userId}
         />
         <PricingCard
-          title="Yearly Plan"
-          price="$100"
-          description="Save 17% with annual billing"
-          buttonText="Subscribe Yearly"
           buttonLink={process.env.NEXT_PUBLIC_STRIPE_PAYMENT_LINK_YEARLY || "#"}
+          buttonText="Subscribe Yearly"
+          description="Save 17% with annual billing"
           features={features}
-          userId={userId}
           popular={true}
+          price="$100"
+          title="Yearly Plan"
+          userId={userId}
         />
       </div>
 
-      <p className="text-muted-foreground mt-8 text-center text-sm">
+      <p className="mt-8 text-center text-sm text-muted-foreground">
         All prices are in USD. Need a custom plan?{" "}
-        <a href="/contact" className="font-medium underline underline-offset-4">
+        <a className="font-medium underline underline-offset-4" href="/contact">
           Contact us
         </a>
       </p>
@@ -107,7 +107,7 @@ function PricingCard({
       )}
     >
       {popular && (
-        <div className="bg-primary text-primary-foreground absolute -top-4 left-1/2 -translate-x-1/2 rounded-full px-3 py-1 text-sm font-medium">
+        <div className="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-primary px-3 py-1 text-sm font-medium text-primary-foreground">
           Most Popular
         </div>
       )}
@@ -125,9 +125,9 @@ function PricingCard({
 
         <ul className="space-y-3">
           {features.map((feature, index) => (
-            <li key={index} className="flex items-center gap-x-2">
-              <Check className="text-primary size-4" />
-              <span className="text-muted-foreground text-sm">{feature}</span>
+            <li className="flex items-center gap-x-2" key={index}>
+              <Check className="size-4 text-primary" />
+              <span className="text-sm text-muted-foreground">{feature}</span>
             </li>
           ))}
         </ul>
@@ -135,18 +135,18 @@ function PricingCard({
 
       <CardFooter>
         <Button
+          asChild
           className={cn(
             "w-full",
             popular && "bg-primary text-primary-foreground hover:bg-primary/90"
           )}
-          asChild
         >
           <a
-            href={finalButtonLink}
             className={cn(
               "inline-flex items-center justify-center",
               finalButtonLink === "#" && "pointer-events-none opacity-50"
             )}
+            href={finalButtonLink}
           >
             {buttonText}
           </a>

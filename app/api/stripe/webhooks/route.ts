@@ -8,7 +8,7 @@ import {
 } from "@/actions/stripe-actions"
 import { stripe } from "@/lib/stripe"
 import { headers } from "next/headers"
-import Stripe from "stripe"
+import type Stripe from "stripe"
 
 const relevantEvents = new Set([
   "checkout.session.completed",
@@ -28,9 +28,10 @@ export async function POST(req: Request) {
     }
 
     event = stripe.webhooks.constructEvent(body, sig, webhookSecret)
-  } catch (err: any) {
-    console.error(`Webhook Error: ${err.message}`)
-    return new Response(`Webhook Error: ${err.message}`, { status: 400 })
+  } catch (err: Error | unknown) {
+    const errorMessage = err instanceof Error ? err.message : String(err)
+    console.error(`Webhook Error: ${errorMessage}`)
+    return new Response(`Webhook Error: ${errorMessage}`, { status: 400 })
   }
 
   if (relevantEvents.has(event.type)) {
