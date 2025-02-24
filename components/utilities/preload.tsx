@@ -8,48 +8,59 @@ import { useEffect } from "react"
 
 export function Preload() {
   useEffect(() => {
-    // Preload key resources
-    const preloadLinks = [
-      // Preload fonts
-      {
-        rel: "preload",
-        href: "/fonts/inter-var.woff2",
-        as: "font",
-        type: "font/woff2",
-        crossOrigin: "anonymous"
-      },
+    try {
+      // Ensure we're in the browser environment
+      if (typeof window === "undefined") {
+        return
+      }
 
-      // Preload critical images
-      { rel: "preload", href: "/logo.png", as: "image" },
+      // Preload key resources
+      const preloadLinks = [
+        // Preload fonts
+        {
+          rel: "preload",
+          href: "/fonts/inter-var.woff2",
+          as: "font",
+          type: "font/woff2",
+          crossOrigin: "anonymous"
+        },
 
-      // Preconnect to key domains
-      { rel: "preconnect", href: "https://prgalskhamygixowmkhp.supabase.co" },
-      { rel: "preconnect", href: "https://api.clerk.dev" },
-      { rel: "preconnect", href: "https://api.stripe.com" }
-    ]
+        // Preload critical images
+        { rel: "preload", href: "/logo.png", as: "image" },
 
-    preloadLinks.forEach(link => {
-      const linkEl = document.createElement("link")
-      Object.entries(link).forEach(([key, value]) => {
-        linkEl.setAttribute(key, value)
+        // Preconnect to key domains
+        { rel: "preconnect", href: "https://prgalskhamygixowmkhp.supabase.co" },
+        { rel: "preconnect", href: "https://api.clerk.dev" },
+        { rel: "preconnect", href: "https://api.stripe.com" }
+      ]
+
+      preloadLinks.forEach(link => {
+        const linkEl = document.createElement("link")
+        Object.entries(link).forEach(([key, value]) => {
+          linkEl.setAttribute(key, value)
+        })
+        document.head.appendChild(linkEl)
       })
-      document.head.appendChild(linkEl)
-    })
 
-    // Optional: Implement instant.page for preloading on hover
-    // https://instant.page/
-    if (process.env.NODE_ENV === "production") {
-      const script = document.createElement("script")
-      script.src = "https://instant.page/5.2.0"
-      script.type = "module"
-      script.integrity =
-        "sha384-jnZyxPjiipYXnSU0ygqeac2q7CVYMbh84q0uHVRRxEhFds1mHWbQ26fkkegzyFb"
-      script.crossOrigin = "anonymous"
-      document.body.appendChild(script)
+      // Optional: Implement instant.page for preloading on hover
+      // https://instant.page/
+      if (process.env.NODE_ENV === "production") {
+        const script = document.createElement("script")
+        script.src = "https://instant.page/5.2.0"
+        script.type = "module"
+        script.integrity =
+          "sha384-jnZyxPjiipYXnSU0ygqeac2q7CVYMbh84q0uHVRRxEhFds1mHWbQ26fkkegzyFb"
+        script.crossOrigin = "anonymous"
+        document.body.appendChild(script)
+      }
+    } catch (error) {
+      // Log error but don't crash the application
+      console.error("Error in preload component:", error)
     }
 
     return () => {
-      // Clean up if component unmounts
+      // Cleanup is optional here since the links will persist
+      // but we include it for completeness
     }
   }, [])
 

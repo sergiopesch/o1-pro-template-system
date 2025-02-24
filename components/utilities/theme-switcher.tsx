@@ -7,17 +7,27 @@ This client component provides a theme switcher for the app.
 import { cn } from "@/lib/utils"
 import { Moon, Sun } from "lucide-react"
 import { useTheme } from "next-themes"
-import { type HTMLAttributes } from "react"
+import { type HTMLAttributes, useCallback } from "react"
 
 interface ThemeSwitcherProps extends HTMLAttributes<HTMLDivElement> {}
 
 export const ThemeSwitcher = ({ ...props }: ThemeSwitcherProps) => {
   const { setTheme, theme } = useTheme()
 
-  const handleChange = (theme: "dark" | "light") => {
-    localStorage.setItem("theme", theme)
-    setTheme(theme)
-  }
+  const handleChange = useCallback(
+    (newTheme: "dark" | "light") => {
+      // Only access localStorage in the browser
+      if (typeof window !== "undefined") {
+        try {
+          localStorage.setItem("theme", newTheme)
+        } catch (error) {
+          console.error("Error setting theme in localStorage:", error)
+        }
+      }
+      setTheme(newTheme)
+    },
+    [setTheme]
+  )
 
   return (
     <div

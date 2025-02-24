@@ -83,7 +83,7 @@ export const HeroSection = () => {
         <HeroVideoDialog
           animationStyle="top-in-bottom-out"
           thumbnailAlt="Hero Video"
-          thumbnailSrc="hero.png"
+          thumbnailSrc="/hero.png"
           videoSrc="https://www.youtube.com/embed/9yS0dR0kP-s"
         />
       </motion.div>
