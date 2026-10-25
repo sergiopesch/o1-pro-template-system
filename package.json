@@ -18,7 +18,8 @@
     "analyze": "ANALYZE=true npm run build",
     "db:generate": "echo 'drizzle-kit removed during security remediation'",
     "db:migrate": "echo 'drizzle-kit removed during security remediation'",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "test:authorization": "node --experimental-vm-modules --test tests/server-action-authorization.test.mjs"
   },
   "dependencies": {
     "@clerk/backend": "^1.24.0",
@@ -57,19 +58,19 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cmdk": "^1.0.4",
-    "date-fns": "^4.1.0",
+    "date-fns": "^3.6.0",
     "drizzle-orm": "^0.45.2",
     "embla-carousel-react": "^8.5.2",
     "framer-motion": "^12.4.2",
     "input-otp": "^1.4.2",
     "lucide-react": "^0.475.0",
-    "next": "^15.1.7",
+    "next": "15.5.28",
     "next-themes": "^0.4.4",
     "postcss": "^8.5.2",
     "postgres": "^3.4.5",
-    "react": "^19.0",
-    "react-day-picker": "^8.10.1",
-    "react-dom": "^19.0",
+    "react": "19.2.9",
+    "react-day-picker": "^8.10.2",
+    "react-dom": "19.2.9",
     "react-hook-form": "^7.54.2",
     "react-resizable-panels": "^2.1.7",
     "recharts": "^2.15.1",
@@ -93,6 +94,7 @@
     "eslint-plugin-tailwindcss": "^3.18.0",
     "husky": "^9.1.7",
     "prettier": "^3.5.0",
-    "typescript": "^5"
+    "typescript": "^5",
+    "postcss": "^8.5.24"
   }
 }
